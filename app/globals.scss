@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "./styles/variable.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto !important;
+
+  // Media queries for responsiveness
+  @media (max-width: 1200px) {
+    max-width: 1000px; // Adjust max-width for medium screens
+  }
+
+  @media (max-width: 992px) {
+    max-width: 720px; // Adjust max-width for small screens
+  }
+
+  @media (max-width: 768px) {
+    max-width: 540px; // Adjust max-width for extra-small screens
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+p {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.hello {
+  color: $primary-dark-blue; // Ensure $primary-dark-blue is defined in variable.scss
+}
+
+.multi-step {
+  color: white !important;
+  margin-top: 20px;
+}
+
+.ant-steps-item-title {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.ant-steps-icon {
+  color: black !important;
+}
+
+.ant-steps-item-icon {
+  background-color: #fff !important;
+}
+
+#picture__input {
+  display: none;
+}
+
+.pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+}
+
+.picture:hover {
+  color: #777;
+  background: #ccc;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+  max-width: 100%;
+}
+
+.no_data {
+  text-align: center;
+  padding: 40px;
+  font: bold 50px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb,
+    0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
+    0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.loader-spinner-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  .spinner-border-wrap {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+  }
+
+  .spinner-border {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: -0.125em;
+    border: 0.25em solid rgb(0, 23, 226);
+    border-right-color: rgba(4, 46, 243, 0.4);
+    border-radius: 50%;
+    -webkit-animation: 0.75s linear infinite spinner-border;
+    animation: 0.75s linear infinite spinner-border;
+  }
+}
+
+@-webkit-keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 25s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+.preview {
+  width: 100%;
+  max-height: 100px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+}
+
+.sticky_card {
+  position: sticky !important;
+  top: 160px !important;
+  height: 100% !important;
+  border: 2px solid red !important;
+}
+
+.first_col {
+  width: 70% !important;
+  position: relative !important;
+}
