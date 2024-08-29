@@ -1,30 +1,54 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiHome, FiFileText, FiBook, FiPhone } from "react-icons/fi";
 import Image from "next/image";
-import styles from "./Navbar.module.scss";
-import { CiLight } from "react-icons/ci";
-import { MdLightMode } from "react-icons/md";
+import { usePathname } from "next/navigation";
+
+import { MdCheck, MdLightMode } from "react-icons/md";
+import Modal from "../Modal/Modal";
 
 function NavBar() {
-  const [activeLink, setActiveLink] = useState("home");
+  const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const [selectedMode, setSelectedMode] = useState(null);
+
+  const selectMode = (mode: any) => {
+    setSelectedMode(mode);
+  };
+
+  useEffect(() => {
+    const pathToLinkMap: { [key: string]: string } = {
+      "/": "home",
+      "/about": "about",
+      "/portfolio": "portfolio",
+      "/contact": "contact",
+      "/skill": "skill",
+      "/service": "service",
+    };
+    setActiveLink(pathToLinkMap[pathname] || "home");
+  }, [pathname]);
 
   return (
     <div className="container">
       {/* Desktop View */}
-      <div className="hidden w-full md:flex justify-between items-center w-full lg:max-w-7xl md:px-8 mx-auto fixed top-3 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-4 mx-4 rounded-[25px] border border-[#fff] shadow-2xl">
-        <h2 className="flex items-center p-2 border rounded-full text-white text-[20px]">
+      <div className="hidden border-gray-700  w-full md:flex justify-between items-center lg:max-w-7xl md:px-8 mx-auto fixed top-3 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-1  rounded-[25px] border-[0.1px] border-white-600 border-opacity-100 shadow-lg">
+        <h2 className="flex items-center p-2  rounded-full text-white text-[20px]">
           SC
         </h2>
 
         <div className="flex space-x-6">
           <Link
             href="/"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "home"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("home")}
@@ -33,21 +57,20 @@ function NavBar() {
           </Link>
           <Link
             href="/about"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "about"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("about")}
           >
             About
           </Link>
-
           <Link
             href="/portfolio"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "portfolio"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("portfolio")}
@@ -56,9 +79,9 @@ function NavBar() {
           </Link>
           <Link
             href="/contact"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "contact"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("contact")}
@@ -67,20 +90,20 @@ function NavBar() {
           </Link>
           <Link
             href="/skill"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "skill"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("skill")}
           >
-            Tech Stack
+            Skills
           </Link>
           <Link
             href="/service"
-            className={`text-[#FFFFFF] ${
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "service"
-                ? "bg-[#40E0D0] px-2 text-[black] rounded-sm"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
             onClick={() => setActiveLink("service")}
@@ -89,44 +112,181 @@ function NavBar() {
           </Link>
         </div>
 
-        <Link
-          href="#modal"
-          onClick={() => setActiveLink("modal")}
-          className={`relative ${
-            activeLink === "modal" ? "text-yellow-500" : ""
-          }`}
-        >
-          <MdLightMode
-            size={30}
-            className={`text-[#FFFFFF] ${
-              activeLink === "modal" ? "text-yellow-500" : ""
-            }`}
-          />
-        </Link>
+        <div className="p-4 ">
+          <button onClick={openModal}>
+            <MdLightMode size={30} className="text-yellow-500" />
+          </button>
+
+          <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <div className="flex flex-col gap-[0.5rem] ">
+              <div className="flex gap-[2rem] justify-center space-x-4 mt-4">
+                <div
+                  className="
+             "
+                >
+                  <div
+                    className={`p-1 border rounded-lg cursor-pointer  ${
+                      selectedMode === "light"
+                        ? "border-white border-[2px]"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => selectMode("light")}
+                  >
+                    <div className="text-center relative">
+                      {/* Light Mode Image */}
+                      <img
+                        src="/light.jpg"
+                        alt="Light Mode"
+                        className="w-[120px] h-[100px] rounded-lg"
+                      />
+                      {selectedMode === "light" && (
+                        <MdCheck
+                          size={24}
+                          className="text-[white] rounded-full bg-[black] p-1 font-[bold] text-[50px] top-[30%] right-[40%] mt-2 absolute"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <p className="font-[300] text-[#ededed] text-[0.875] text-center mt-2">
+                    Light Mode
+                  </p>
+                </div>
+
+                <div className="">
+                  <div
+                    className={`p-1  border rounded-lg cursor-pointer ${
+                      selectedMode === "dark"
+                        ? "border-white border-[2px]"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => selectMode("dark")}
+                  >
+                    <div className="text-center relative">
+                      {/* Dark Mode Image */}
+                      <img
+                        src="/dark.jpg"
+                        alt="Dark Mode"
+                        className="w-[120px] h-[100px] rounded-lg"
+                      />
+                      {selectedMode === "dark" && (
+                        <MdCheck
+                          size={24}
+                          className="text-[black] rounded-full bg-[white] p-1 font-[bold] text-[50px] top-[30%] right-[40%] mt-2 absolute"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="font-[300] text-[#ededed] text-[0.875] text-center mt-2">
+                    Dark Mode
+                  </p>
+                </div>
+              </div>
+              <div className="flex mt-4 border-t justify-center border-gray-600 gap-[2.8rem] ">
+                <button className="bg-gray-800 hover:bg-gray-700 transition  w-[130px] text-[13px] text-[white] py-2 px-4  mt-4 rounded-xl">
+                  Close
+                </button>
+                <button className="bg-[#00808085] hover:bg-[#008080] transition  w-[130px] text-[13px] text-[white] py-2 px-4  mt-4 rounded-xl">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </Modal>
+        </div>
       </div>
 
       {/* Mobile View */}
-      <div className="block md:hidden fixed top-0 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-3 mx-3 rounded-[20px] border border-[#fff] flex justify-between items-center shadow-md">
+      <div className=" md:hidden border-gray-700  fixed top-0 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-1 px-2 mx-3 mt-2 rounded-[20px] border flex justify-between items-center shadow-md">
         <h2 className="flex items-center p-2 border rounded-full text-white text-[20px]">
           SC
         </h2>
-        <Link
-          href="#modal"
-          onClick={() => setActiveLink("modal")}
-          className={`relative ${
-            activeLink === "modal" ? "text-yellow-300" : ""
-          }`}
-        >
-          <MdLightMode
-            size={30}
-            className={`text-[#FFFFFF] ${
-              activeLink === "modal" ? "text-yellow-300" : ""
-            }`}
-          />
-        </Link>
+        <div className="p-4 ">
+          <button onClick={openModal}>
+            <MdLightMode size={30} className="text-yellow-500" />
+          </button>
+
+          <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <div className="flex flex-col gap-[0.5rem] ">
+              <div className="flex gap-[2rem] justify-center space-x-4 mt-4">
+                <div
+                  className="
+             "
+                >
+                  <div
+                    className={`p-1 border rounded-lg cursor-pointer  ${
+                      selectedMode === "light"
+                        ? "border-white border-[2px]"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => selectMode("light")}
+                  >
+                    <div className="text-center relative">
+                      {/* Light Mode Image */}
+                      <img
+                        src="/light.jpg"
+                        alt="Light Mode"
+                        className="w-[120px] h-[100px] rounded-lg"
+                      />
+                      {selectedMode === "light" && (
+                        <MdCheck
+                          size={24}
+                          className="text-[white] rounded-full bg-[black] p-1 font-[bold] text-[50px] top-[30%] right-[40%] mt-2 absolute"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <p className="font-[300] text-[#ededed] text-[0.875] text-center mt-2">
+                    Light Mode
+                  </p>
+                </div>
+
+                <div className="">
+                  <div
+                    className={`p-1  border rounded-lg cursor-pointer ${
+                      selectedMode === "dark"
+                        ? "border-white border-[2px]"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => selectMode("dark")}
+                  >
+                    <div className="text-center relative">
+                      {/* Dark Mode Image */}
+                      <img
+                        src="/dark.jpg"
+                        alt="Dark Mode"
+                        className="w-[120px] h-[100px] rounded-lg"
+                      />
+                      {selectedMode === "dark" && (
+                        <MdCheck
+                          size={24}
+                          className="text-[black] rounded-full bg-[white] p-1 font-[bold] text-[50px] top-[30%] right-[40%] mt-2 absolute"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="font-[300] text-[#ededed] text-[0.875] text-center mt-2">
+                    Dark Mode
+                  </p>
+                </div>
+              </div>
+              <div className="flex mt-4 border-t justify-center border-gray-600 gap-[2.8rem] ">
+                <button
+                  onClick={closeModal}
+                  className="bg-gray-800 hover:bg-gray-700 transition  w-[130px] text-[13px] text-[white] py-2 px-4  mt-4 rounded-xl"
+                >
+                  Close
+                </button>
+                <button className="bg-[#00808085] hover:bg-[#008080] transition  w-[130px] text-[13px] text-[white] py-2 px-4  mt-4 rounded-xl">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </Modal>
+        </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 shadow-t-md p-4 mx-3 rounded-[20px] border border-[#fff] block md:hidden">
+      <div className="fixed border-gray-700  bottom-0 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 shadow-t-md p-4 mx-3 mb-2 rounded-[20px] border  block md:hidden">
         <ul className="flex justify-between items-center relative">
           <li
             className={`text-center flex items-center justify-center ${
@@ -192,16 +352,16 @@ function NavBar() {
               activeLink === "project" ? "text-[#40E0D0]" : "text-[#FFFFFF]"
             }`}
           >
-            <Link href="/project" onClick={() => setActiveLink("project")}>
+            <Link href="/skill" onClick={() => setActiveLink("skill")}>
               <div className="flex flex-col items-center ml-[60%]">
                 <div
                   className={`p-2 rounded-full transition-colors duration-300 ease-in-out ${
-                    activeLink === "project" ? "bg-[#40E0D0]/40" : ""
+                    activeLink === "skill" ? "bg-[#40E0D0]/40" : ""
                   }`}
                 >
                   <FiFileText size={15} />
                 </div>
-                <span className="mt-0 text-[10px]">Projects</span>
+                <span className="mt-0 text-[10px]">Skills</span>
               </div>
             </Link>
           </li>

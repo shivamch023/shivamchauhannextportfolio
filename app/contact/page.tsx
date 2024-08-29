@@ -1,7 +1,15 @@
-import React from "react";
+"use client";
 
-const page = () => {
-  return <div>contact</div>;
+import MessageMe from "../components/MessegeMe/MessageMe";
+import SocialMedia from "../components/SocialMedia/SocialMedia";
+
+const Page = () => {
+  return (
+    <div className="container">
+      <MessageMe />
+      <SocialMedia />
+    </div>
+  );
 };
 
-export default page;
+export default Page;
