@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -39,10 +40,14 @@ function NavBar() {
     <div className="container">
       {/* Desktop View */}
       <div className="hidden border-gray-700  w-full md:flex justify-between items-center lg:max-w-7xl md:px-8 mx-auto fixed top-3 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-1  rounded-[25px] border-[0.1px] border-white-600 border-opacity-100 shadow-lg">
-        <h2 className="flex items-center p-2  rounded-full text-white text-[20px]">
-          SC
-        </h2>
-
+        <div className="text-[2.5rem] select-none font-bold flex items-center border-gray-700  justify-center border-r-2 px-5 h-[47px]">
+          <span className="inline-block bg-gradient-to-b from-white to-[#008080] bg-clip-text text-transparent transform rotate-[4deg]">
+            S
+          </span>
+          <span className="inline-block bg-gradient-to-b from-[#008080] to-white bg-clip-text text-transparent transform rotate-[-7deg]">
+            C
+          </span>
+        </div>
         <div className="flex space-x-6">
           <Link
             href="/"
@@ -77,6 +82,7 @@ function NavBar() {
           >
             Portfolio
           </Link>
+
           <Link
             href="/contact"
             className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${

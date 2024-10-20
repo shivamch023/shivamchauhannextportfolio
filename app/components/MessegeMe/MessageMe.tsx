@@ -131,7 +131,7 @@ const MessageMe = () => {
                 />
                 <label
                   htmlFor="consent"
-                  className="ml-2 block text-sm text-white"
+                  className="ml-2 block text-[12px] text-white"
                 >
                   I acknowledge and agree to the{" "}
                   <Link
@@ -151,16 +151,16 @@ const MessageMe = () => {
               </div>
 
               {/* Buttons */}
-              <div className="flex space-x-4">
+              <div className="flex justify-center items-center lg:items-start lg:justify-start md:items-start md:justify-center xl:items-center xl:justify-start space-x-4">
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#008080] text-white text-[12px] transition rounded-md hover:bg-[#009688]"
+                  className="px-4 py-2 bg-[#008080]  text-white text-nowrap text-[14px] transition rounded-md hover:bg-[#009688]"
                 >
                   Send Message
                 </button>
                 <button
                   type="button"
-                  className="px-4 py-2 bg-[#1D2029] text-white text-[12px] transition rounded-md hover:bg-[#2a2d37]"
+                  className="px-4 text-nowrap py-2 bg-[#1D2029] text-white text-[14px] transition rounded-md hover:bg-[#2a2d37]"
                 >
                   Schedule a Call
                 </button>
@@ -176,7 +176,7 @@ const MessageMe = () => {
                 alt="Shivam"
                 className="rounded-lg  shadow-lg mx-auto max-w-full h-auto"
                 height={300}
-                width={400}
+                width={350}
               />
             </div>
           </div>

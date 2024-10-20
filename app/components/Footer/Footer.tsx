@@ -1,94 +1,83 @@
-// File: components/Footer.jsx
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faGithub,
+  faLinkedinIn,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Column 1 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+    <footer className="bg-gradient-to-r bg-[#080C16] py-12 text-white">
+      <div className="container mx-auto px-6 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+          {/* Profile Section */}
+          <div className="flex flex-col items-center md:items-start">
+            <Image
+              src="/assets/shivam.jpg"
+              alt="Profile"
+              width={28}
+              height={28}
+              className="rounded-full object-cover w-28 h-28 border-4 border-white shadow-lg mb-4"
+            />
+            <h2 className="text-3xl font-semibold">Shivam Chauhan</h2>
+            <p className="text-gray-200 mt-1">Web Developer</p>
           </div>
-          {/* Column 2 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* Column 3 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* Column 4 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Subscribe</h3>
-            <form>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border-none focus:outline-none focus:ring-2 focus:ring-gray-500"
-              />
-              <button
-                type="submit"
-                className="w-full mt-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
+
+          {/* Contact Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Contact Info</h3>
+            <p className="text-gray-200">
+              Phone:{" "}
+              <Link href="tel:+916394687564" className="hover:text-white">
+                +91 6394687564
+              </Link>
+            </p>
+            <p className="text-gray-200">
+              Email:{" "}
+              <Link
+                href="mailto:shivamchauhan249@gmail.com"
+                className="hover:text-white"
               >
-                Subscribe
-              </button>
-            </form>
+                shivamchauhan249@gmail.com
+              </Link>
+            </p>
+          </div>
+
+          {/* Social Links Section */}
+          <div className="flex justify-center md:justify-start space-x-6">
+            <Link
+              href="https://www.facebook.com"
+              className="text-3xl hover:text-gray-100"
+            >
+              <FontAwesomeIcon icon={faFacebookF} />
+            </Link>
+            <Link
+              href="https://github.com"
+              className="text-3xl hover:text-gray-100"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </Link>
+            <Link
+              href="https://linkedin.com"
+              className="text-3xl hover:text-gray-100"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </Link>
+            <Link
+              href="https://instagram.com"
+              className="text-3xl hover:text-gray-100"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </Link>
           </div>
         </div>
-        <div className="mt-8 text-center text-gray-400">
-          &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+
+        {/* Bottom Section */}
+        <div className="mt-10 text-center text-sm text-gray-300 border-t border-gray-400 pt-4">
+          © 2024 Shivam Chauhan. All rights reserved.
         </div>
       </div>
     </footer>

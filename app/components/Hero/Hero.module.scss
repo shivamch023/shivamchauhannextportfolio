@@ -1,0 +1,62 @@
+.heroContainer {
+  position: relative;
+  overflow: hidden; /* Ensure bubbles stay within the container */
+}
+
+.bubblesContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 99; /* Ensure bubbles are behind content */
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 128, 128, 0.5); /* Default color */
+  animation: bubbleAnimation 6s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: -12;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(70%) scale(0.5);
+    opacity: 0.7;
+  }
+}
+
+/* Different colors for bubbles */
+.bubble-0 {
+  background-color: rgba(0, 128, 128, 0.3);
+}
+.bubble-1 {
+  background-color: rgba(0, 200, 200, 0.5);
+}
+.bubble-2 {
+  background-color: rgba(0, 150, 150, 0.7);
+}
+.bubble-3 {
+  background-color: rgba(0, 100, 100, 0.9);
+}
+.bubble-4 {
+  background-color: rgb(255, 225, 240);
+}
+.bubble-5 {
+  background-color: rgba(204, 202, 203, 0.5);
+}
+.bubble-6 {
+  background-color: rgba(243, 243, 243, 0.7);
+}
+.bubble-7 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
