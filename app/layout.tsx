@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/ScrollToTopBottom/ScrollToTopBottom";
 import Profile from "./components/Profile/Profile";
+import WebApp from "./components/WebApp/WebApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        <WebApp>
         {children}
-        <Footer />
-        <ScrollToTopButton />
 
-        <Profile />
+        </WebApp>
+       
+      
       </body>
     </html>
   );

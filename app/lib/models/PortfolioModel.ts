@@ -20,7 +20,7 @@ const PortfolioSchema = new Schema({
   },
   description1: {
     type: String,
-    required: false, // Additional description (optional)
+    required: true, // Additional description (optional)
   },
   videoImg: {
     type: String,
@@ -37,7 +37,7 @@ const PortfolioSchema = new Schema({
   nestedData: {
     images: {
       type: [String], // Array of image URLs
-      required: true,
+      required: false,
     },
     video: {
       type: String, // Video URL (like YouTube embed)
@@ -47,27 +47,27 @@ const PortfolioSchema = new Schema({
   nestedSkill: {
     html: {
       type: String,
-      required: true,
+      required: false,
     },
     css: {
       type: String,
-      required: true,
+      required: false,
     },
     javascript: {
       type: String,
-      required: true,
+      required: false,
     },
     react: {
       type: String,
-      required: true,
+      required: false,
     },
     tailwind: {
       type: String,
-      required: true,
+      required: false,
     },
     apiIntegration: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 
