@@ -3,6 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 
 const Typewriter = dynamic(() => import("react-typewriter-effect"), {
   ssr: false,
@@ -10,7 +11,7 @@ const Typewriter = dynamic(() => import("react-typewriter-effect"), {
 
 const Hero = () => {
   return (
-    <div className="container mx-auto pt-[7rem] pb-[3rem] md:pt-[8rem] md:pb-[4rem] px-4 md:px-6 flex flex-col md:flex-row items-center  justify-between">
+    <div className="container mx-auto pt-[5rem] pb-[3rem] md:pt-[4rem] md:pb-[4rem] px-4 md:px-6 flex flex-col md:flex-row items-center  justify-between">
       <div className="bg-[#080C16]   rounded-3xl w-full p-6 md:p-[4rem] flex flex-col md:flex-row items-center justify-between">
         <div className=" flex w-full flex-col align-center justify-start md:text-left text-center">
           <div className="space-y-4 w-full">
@@ -54,10 +55,12 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex justify-center gap-2 md:justify-end md:w-1/2 mt-8 md:mt-0">
-          <img
+          <Image
             src="/assets/shivam.jpg"
             alt="Shivam"
             className="w-[350px] md:w-[350px] rounded-lg shadow-lg"
+            width={800}
+            height={600}
           />
         </div>
       </div>

@@ -20,60 +20,23 @@ const PortfolioSchema = new Schema({
   },
   description1: {
     type: String,
-    required: true, // Additional description (optional)
-  },
-  videoImg: {
-    type: String,
-    required: false, // Optional, as it's related to video
+    required: true, 
   },
   github: {
     type: String,
-    required: true, // GitHub repository URL
+    required: true, 
   },
   live: {
     type: String,
-    required: true, // Live URL of the project
+    required: true, 
   },
-  nestedData: {
-    images: {
-      type: [String], // Array of image URLs
-      required: false,
-    },
-    video: {
-      type: String, // Video URL (like YouTube embed)
-      required: false,
-    },
+  skills: {
+    type: [String], // Array of strings for skills
+    required: true,
   },
-  nestedSkill: {
-    html: {
-      type: String,
-      required: false,
-    },
-    css: {
-      type: String,
-      required: false,
-    },
-    javascript: {
-      type: String,
-      required: false,
-    },
-    react: {
-      type: String,
-      required: false,
-    },
-    tailwind: {
-      type: String,
-      required: false,
-    },
-    apiIntegration: {
-      type: String,
-      required: false,
-    },
-  },
+}, { timestamps: true }); 
 
-}, { timestamps: true }); // Adds createdAt and updatedAt timestamps
-
-// Creating the model
 const PortfolioModel = mongoose.models.Portfolio || model("Portfolio", PortfolioSchema);
 
 export default PortfolioModel;
+

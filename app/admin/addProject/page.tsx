@@ -1,95 +1,92 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
+
 "use client";
 import React, { useState } from "react";
-import Select from "react-select";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const skillsOptions = [
-  { value: "html", label: "HTML" },
-  { value: "css", label: "CSS" },
-  { value: "javascript", label: "JavaScript" },
-  { value: "react", label: "React" },
-  { value: "tailwind", label: "Tailwind CSS" },
-  { value: "apiIntegration", label: "API Integration" },
-];
-
-const ProjectUploadForm = () => {
+const ProjectUploadForm: React.FC = () => {
   const [formData, setFormData] = useState({
     id: "",
     title: "",
     image: null,
     description: "",
     description1: "",
-    videoImg: null, // Change to hold the selected image
     github: "",
     live: "",
-    images: [],
-    videoUrl: "",
-    skills: [],
+    skills: [""], // Initialize with an empty skill
   });
 
-  const handleChange = (e: any) => {
-    const { name, value, files } = e.target;
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, files } = e.target as HTMLInputElement;
 
-    if (name === "image") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: files[0],
-      }));
-    } else if (name === "images") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: Array.from(files).slice(0, 6), // Limit to 6 images
-      }));
-    } else if (name === "videoImg") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: files[0], // Set the selected video image
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData: any) => {
+      if (name === "image") {
+        return {
+          ...prevData,
+          [name]: files ? files[0] : null,
+        };
+      } else if (name.startsWith("skill")) {
+        const index = parseInt(name.split("-")[1], 10);
+        const updatedSkills = [...prevData.skills];
+        updatedSkills[index] = value; // Update skill at the specified index
+        return {
+          ...prevData,
+          skills: updatedSkills,
+        };
+      } else {
+        return {
+          ...prevData,
+          [name]: value,
+        };
+      }
+    });
   };
 
-  const handleSkillsChange = (selectedOptions: any[]) => {
-    const selectedSkills = selectedOptions
-      ? selectedOptions.map((option) => option.value)
-      : [];
+  const addSkill = () => {
     setFormData((prevData: any) => ({
       ...prevData,
-      skills: selectedSkills,
+      skills: [...prevData.skills, ""], // Add an empty string for a new skill
     }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const form = new FormData();
     for (const key in formData) {
-      if (Array.isArray(formData[key])) {
-        formData[key].forEach((file) => form.append(key, file));
-      } else {
-        form.append(key, formData[key]);
+      const value = formData[key as keyof typeof formData];
+      if (Array.isArray(value)) {
+        value.forEach((v, index) => {
+          form.append(`skills[${index}]`, v); // Append each skill to the form with an index
+        });
+      } else if (value) {
+        form.append(key, value);
       }
     }
 
-    const response = await fetch("/api/portfolio", {
-      method: "POST",
-      body: form,
-    });
+    try {
+      const response = await fetch("/api/portfolio", {
+        method: "POST",
+        body: form,
+      });
 
-    if (response.ok) {
-      toast.success("Project uploaded successfully!");
-    } else {
-      toast.error("Failed to upload project. Please try again.");
+      if (response.ok) {
+        toast.success("Project uploaded successfully!");
+      } else {
+        toast.error("Failed to upload project. Please try again.");
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An error occurred. Please try again.");
     }
-
-    const data = await response.json();
-    console.log(data);
   };
 
   return (
@@ -159,39 +156,20 @@ const ProjectUploadForm = () => {
           placeholder="Additional Description"
           value={formData.description1}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">
-          Video Thumbnail
-        </label>
-        <input
-          type="file"
-          name="videoImg" // Change to file input for image
-          onChange={handleChange}
           required
           className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
         />
-        {/* Display the selected video thumbnail */}
-        {formData.videoImg && (
-          <img
-            src={URL.createObjectURL(formData.videoImg)}
-            alt="Video Thumbnail"
-            className="mt-2 w-16 h-16 object-cover rounded border border-gray-300"
-          />
-        )}
       </div>
 
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1">GitHub Link</label>
         <input
-          type="text"
+          type="url"
           name="github"
           placeholder="GitHub Link"
           value={formData.github}
           onChange={handleChange}
+          required
           className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
         />
       </div>
@@ -199,72 +177,42 @@ const ProjectUploadForm = () => {
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1">Live Link</label>
         <input
-          type="text"
+          type="url"
           name="live"
-          placeholder="Live Link"
+          placeholder="Live Project Link"
           value={formData.live}
           onChange={handleChange}
+          required
           className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">
-          Additional Images (up to 6)
-        </label>
-        <input
-          type="file"
-          name="images"
-          onChange={handleChange}
-          multiple
-          className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-        />
-        <p className="text-sm text-gray-500">You can upload up to 6 images.</p>
-      </div>
-
-      {/* Display selected images */}
-      <div className="mb-4">
-        <h3 className="text-sm font-medium mb-1">Selected Images</h3>
-        <div className="flex space-x-2 overflow-x-auto">
-          {formData.images.map((image, index) => (
-            <img
-              key={index}
-              src={URL.createObjectURL(image)}
-              alt={`Selected ${index + 1}`}
-              className="w-16 h-16 object-cover rounded border border-gray-300"
-            />
-          ))}
+      <h3 className="text-lg font-semibold mb-2">Skills</h3>
+      {formData.skills.map((skill, index) => (
+        <div className="mb-2" key={index}>
+          <input
+            type="text"
+            name={`skill-${index}`}
+            placeholder={`Skill ${index + 1}`}
+            value={skill}
+            onChange={handleChange}
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
+          />
         </div>
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Skills</label>
-        <Select
-          options={skillsOptions}
-          isMulti
-          onChange={handleSkillsChange}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Video URL</label>
-        <input
-          type="text"
-          name="videoUrl"
-          placeholder="Video URL"
-          value={formData.videoUrl}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-        />
-      </div>
+      ))}
+      <button
+        type="button"
+        onClick={addSkill}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Add Another Skill
+      </button>
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700 transition duration-200"
+        className="bg-green-500 text-white px-4 py-2 rounded mt-4 hover:bg-green-600"
       >
-        Submit
+        Upload Project
       </button>
     </form>
   );

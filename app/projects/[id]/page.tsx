@@ -1,3 +1,5 @@
+
+
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
@@ -17,6 +19,7 @@ interface Project {
   live: string;
   description: string;
   description1?: string; // Optional property
+  skills?: string[]; // Optional property to handle undefined
 }
 
 const ProjectDetailPage = () => {
@@ -105,7 +108,17 @@ const ProjectDetailPage = () => {
         <h2 className="text-[1.5rem] text-white font-bold flex items-center">
           Skills Used
         </h2>
-        <div className=""></div>
+        <ul className="flex flex-col gap-2 ml-5 text-[#d5d5d5]">
+          {project.skills && project.skills.length > 0 ? (
+            project.skills.map((skill, index) => (
+              <li key={index} className="list-disc">
+                {skill}
+              </li>
+            ))
+          ) : (
+            <li>No skills available</li> // Handle case where skills are undefined or empty
+          )}
+        </ul>
       </div>
     </div>
   );
