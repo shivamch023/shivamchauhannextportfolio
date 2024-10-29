@@ -1,6 +1,5 @@
 import { ConnectDB } from "@/app/lib/config/db";
 import PortfolioModel from "@/app/lib/models/PortfolioModel";
-import { writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
 
 const LoadDB = async () => {
@@ -12,23 +11,20 @@ LoadDB();
 // API ENDPOINT FOR UPLOADING PROJECT
 export async function POST(request: any) {
   const formData = await request.formData();
-  const timestamp = Date.now();
-
+  
   const image = formData.get("image");
   const imageByteData = await image.arrayBuffer();
   const buffer = Buffer.from(imageByteData);
 
-  // Save image to the public folder
-  const path = `./public/${timestamp}_${image.name}`;
-  await writeFile(path, buffer);
-
-  const imgUrl = `/${timestamp}_${image.name}`;
+  // Convert buffer to Base64 string
+  const imgBase64 = buffer.toString('base64');
+  const imgUrl = `data:${image.type};base64,${imgBase64}`; // Constructing the data URL
 
   // Prepare portfolio data with the provided structure
   const portfolioData = {
     id: formData.get("id")?.toString() || "",
     title: formData.get("title")?.toString() || "",
-    image: imgUrl,
+    image: imgUrl, // Store Base64 image here
     description: formData.get("description")?.toString() || "",
     description1: formData.get("description1")?.toString() || "", // Additional description
     github: formData.get("github")?.toString() || "", // GitHub link
@@ -95,10 +91,3 @@ export async function DELETE(request: any) {
     );
   }
 }
-
-
-
-
-
-
-
