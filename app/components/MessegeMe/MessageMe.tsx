@@ -27,7 +27,7 @@ const MessageMe = () => {
         {/* Top Section */}
         <div className="text-white text-center p-6">
           <h1 className="text-2xl font-bold mb-4">
-            Let's <span className="text-[#008080]">talk</span>
+            Let&apos;s <span className="text-[#008080]">talk</span>
           </h1>
           <p className="text-sm text-[#b3b9cd]">
             If you have any questions, feel free to reach out to us at any time.

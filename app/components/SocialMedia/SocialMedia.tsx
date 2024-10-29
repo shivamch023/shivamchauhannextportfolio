@@ -22,7 +22,7 @@ const SocialMedia = () => {
           Stay Connected!
         </h2>
         <p className="text-[1rem] font-[500] text-[#b3b9cd] mb-4">
-          I'd love to hear from you and share my latest projects and ideas.{" "}
+          I&apos;d love to hear from you and share my latest projects and ideas.{" "}
         </p>
         <div className="flex gap-[1rem] items-center  justify-center  ">
           <a
