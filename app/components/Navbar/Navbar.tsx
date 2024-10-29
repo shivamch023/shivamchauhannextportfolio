@@ -140,10 +140,12 @@ function NavBar() {
                   >
                     <div className="text-center relative">
                       {/* Light Mode Image */}
-                      <img
+                      <Image
                         src="/light.jpg"
                         alt="Light Mode"
                         className="w-[120px] h-[100px] rounded-lg"
+                        width={200}
+                        height={200}
                       />
                       {selectedMode === "light" && (
                         <MdCheck
@@ -169,10 +171,12 @@ function NavBar() {
                   >
                     <div className="text-center relative">
                       {/* Dark Mode Image */}
-                      <img
+                      <Image
                         src="/dark.jpg"
                         alt="Dark Mode"
                         className="w-[120px] h-[100px] rounded-lg"
+                        width={200}
+                        height={200}
                       />
                       {selectedMode === "dark" && (
                         <MdCheck
@@ -228,10 +232,12 @@ function NavBar() {
                   >
                     <div className="text-center relative">
                       {/* Light Mode Image */}
-                      <img
+                      <Image
                         src="/light.jpg"
                         alt="Light Mode"
                         className="w-[120px] h-[100px] rounded-lg"
+                        width={200}
+                        height={200}
                       />
                       {selectedMode === "light" && (
                         <MdCheck
@@ -257,10 +263,12 @@ function NavBar() {
                   >
                     <div className="text-center relative">
                       {/* Dark Mode Image */}
-                      <img
+                      <Image
                         src="/dark.jpg"
                         alt="Dark Mode"
                         className="w-[120px] h-[100px] rounded-lg"
+                        width={200}
+                        height={200}
                       />
                       {selectedMode === "dark" && (
                         <MdCheck

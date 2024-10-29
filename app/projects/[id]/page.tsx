@@ -66,9 +66,9 @@ const ProjectDetailPage = () => {
           <Image
             src={project.image}
             alt={project.title}
-            className="w-full h-[full] rounded-[10px] hover:scale-100 transition-all"
-            width={800}
-            height={800}
+            className="w-[100%] h-[100%] rounded-[10px] hover:scale-100 transition-all"
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="w-[33%] h-[395px] flex flex-col gap-[2rem] border rounded-[10px] px-[1rem] py-[2rem] border-gray-600">
