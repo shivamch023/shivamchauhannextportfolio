@@ -30,10 +30,7 @@ const PortfolioSchema = new Schema({
     type: String,
     required: true, 
   },
-  skills: {
-    type: [String], // Array of strings for skills
-    required: true,
-  },
+ skills: { type: [String], default: [] },
 }, { timestamps: true }); 
 
 const PortfolioModel = mongoose.models.Portfolio || model("Portfolio", PortfolioSchema);

@@ -61,9 +61,8 @@ const ProjectUploadForm: React.FC = () => {
     for (const key in formData) {
       const value = formData[key as keyof typeof formData];
       if (Array.isArray(value)) {
-        value.forEach((v, index) => {
-          form.append(`skills[${index}]`, v); // Append each skill to the form with an index
-        });
+        // ऐरे के हर आइटम को अलग-अलग जोड़ें, JSON में बदलने के बजाए
+        value.forEach((item) => form.append("skills", item));
       } else if (value) {
         form.append(key, value);
       }
