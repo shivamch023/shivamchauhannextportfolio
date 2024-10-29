@@ -49,7 +49,17 @@ const ProjectDetailPage = () => {
     fetchProject(); // Call the fetch function when component mounts
   }, [id]);
 
-  if (loading) return <div>Loading...</div>; // Show loading text
+  if (loading)
+    return (
+      <div className="flex flex-col justify-center items-center h-screen bg-gray-900">
+        <div className="loader w-24 h-24 border-8 border-t-8 border-teal-400 rounded-full animate-spin relative">
+          <div className="absolute inset-0 rounded-full border-8 border-teal-400 opacity-50 blur-lg"></div>
+        </div>
+        <p className="mt-4 text-2xl text-teal-400 font-bold text-shadow">
+          Loading...
+        </p>
+      </div>
+    ); // Show loading text
   if (error) return <div>Error: {error}</div>; // Show error message if any
 
   if (!project) return <div>No project found.</div>; // Handle case where project is null
