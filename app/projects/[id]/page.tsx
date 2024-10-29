@@ -112,7 +112,7 @@ const ProjectDetailPage = () => {
             project.skills.map((skill, index) => (
               <li
                 key={index}
-                className="border text-[1.2rem] w-[12rem] text-center h-[3rem] flex items-center justify-center rounded-[10px] text-white py-1 px-6 border-gray-600 hover:bg-gray-900 transition-all"
+                className="border text-[1.2rem] w-[12rem] text-center h-[3rem] flex items-center justify-center rounded-[10px] text-white py-1 px-6 border-gray-600 hover:bg-gray-900 transition-all text-nowrap"
               >
                 {skill}
               </li>
