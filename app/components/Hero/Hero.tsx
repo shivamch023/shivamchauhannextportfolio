@@ -15,10 +15,10 @@ const Hero = () => {
       <div className="bg-[#080C16]   rounded-3xl w-full p-6 md:p-[4rem] flex flex-col md:flex-row items-center justify-between">
         <div className=" flex w-full flex-col align-center justify-start md:text-left text-center">
           <div className="space-y-4 w-full">
-            <h1 className="text-xl md:text-[1.6rem] font-serif font-bold text-[white]">
+            <h1 className="text-[2rem] md:text-[1.6rem] font-serif font-bold text-[white]">
               Meet <span className="text-[#008080]">Shivam</span>.
             </h1>
-            <h2 className="text-[1.3rem]   md:flex md:gap-[0.5rem] text-center md:px-1 md:text-[2.2rem] font-[600] text-[white]">
+            <h2 className="text-[1.8rem]    md:flex md:gap-[0.5rem] text-center md:px-1 md:text-[2.2rem] font-[600] text-[white]">
               I Am
               <Typewriter
                 textStyle={{ fontWeight: "600", color: "#008080" }}
@@ -34,7 +34,7 @@ const Hero = () => {
                 multiTextLoop
               />
             </h2>
-            <p className="w-full md:w-[384px] text-[#e2e2e2] text-[0.8rem] md:text-[1.2rem] font-[400]">
+            <p className="w-full md:w-[384px] text-[#e2e2e2] text-[1rem] md:text-[1.2rem] font-[400]">
               Start a new project with me or take an existing one to the next
               level.
             </p>
@@ -58,9 +58,12 @@ const Hero = () => {
           <Image
             src="/assets/shivam.jpg"
             alt="Shivam"
-            className="w-full xl:w-[350px] md:w-[350px] rounded-lg shadow-lg"
+            className="w-full xl:w-[350px] md:w-[350px] border-[3px] border-dashed border-gray-400 p-1  shadow-lg"
             width={800}
             height={600}
+            style={{
+              borderRadius: "50% 50% 20% 20%", // Adjust the values as needed
+            }}
           />
         </div>
       </div>

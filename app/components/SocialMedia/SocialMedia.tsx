@@ -1,12 +1,12 @@
 import React from "react";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaGithub,
   FaLinkedin,
   FaHandshake,
 } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
 
 const SocialMedia = () => {
   return (
@@ -29,23 +29,23 @@ const SocialMedia = () => {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center p-[0.1rem] w-8 h-8 rounded-lg text-white  bg-gray-800 hover:bg-gray-700 transition"
+            className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-blue-900 hover:bg-blue-700 transition"
           >
-            <FaFacebookF size={24} />
+            <FaFacebookF size={20} />
           </a>
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center p-[0.1rem] w-8 h-8 rounded-lg text-white  bg-gray-800 hover:bg-gray-700 transition"
+            className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-gray-900 hover:bg-gray-800 transition"
           >
-            <FaTwitter size={20} />
+            <FaThreads size={20} />
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center p-[0.1rem] w-9 h-9 rounded-lg text-white  bg-gray-800 hover:bg-gray-700 transition"
+            className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-blue-700 hover:bg-blue-800 transition"
           >
             <FaLinkedin size={20} />
           </a>
@@ -53,7 +53,7 @@ const SocialMedia = () => {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center p-[0.1rem] w-8 h-8 rounded-lg text-white  bg-gray-800 hover:bg-gray-700 transition"
+            className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-gradient-to-t to-red-600 via-pink-1400 from-yellow-900 transition"
           >
             <FaInstagram size={20} />
           </a>
@@ -62,7 +62,7 @@ const SocialMedia = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center p-[0.1rem] w-8 h-8 rounded-lg text-white  bg-gray-800 hover:bg-gray-700 transition"
+            className="flex justify-center items-center p-[0.2] w-8 h-8 rounded-lg text-white  bg-[#000000e6] hover:bg-[#00000079] transition"
           >
             <FaGithub size={20} />
           </a>

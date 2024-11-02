@@ -91,11 +91,11 @@ const TechStack: React.FC<TechStackProps> = ({
         className="w-full flex justify-center items-center flex-col"
       >
         {filteredCards.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-7 w-full p-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-7 w-full p-4">
             {filteredCards.map((card, index) => (
               <motion.div
                 key={index}
-                className="border border-gray-800 bg-[#10141d52] flex justify-center items-center rounded-xl transition shadow-sm cursor-pointer w-full md:w-[180px] lg:w-[180px] xl:w-[180px] h-[160px] mx-auto hover:bg-[#10141d70]"
+                className="border border-gray-800 bg-[#10141d52] flex flex-wrap justify-center items-center rounded-xl transition shadow-sm cursor-pointer w-full md:w-[180px] lg:w-[180px] xl:w-[180px] xl:h-[160px] lg:h-[160px] md:h-[160px] h-[130px] mx-auto hover:bg-[#10141d70]"
                 onClick={() => handleCardClick(card)}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
