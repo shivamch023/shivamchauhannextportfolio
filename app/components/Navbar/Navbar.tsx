@@ -207,9 +207,14 @@ function NavBar() {
 
       {/* Mobile View */}
       <div className=" md:hidden border-gray-700  fixed top-0 left-0 right-0 z-20 backdrop-blur-lg bg-opacity-70 p-1 px-2 mx-3 mt-2 rounded-[20px] border flex justify-between items-center shadow-md">
-        <h2 className="flex items-center p-2 border rounded-full text-white text-[20px]">
-          SC
-        </h2>
+        <div className="text-[2.5rem] select-none font-bold flex items-center border-gray-700  justify-center border-r-2 px-5 h-[47px]">
+          <span className="inline-block bg-gradient-to-b from-white to-[#008080] bg-clip-text text-transparent transform rotate-[4deg]">
+            S
+          </span>
+          <span className="inline-block bg-gradient-to-b from-[#008080] to-white bg-clip-text text-transparent transform rotate-[-7deg]">
+            C
+          </span>
+        </div>
         <div className="p-4 ">
           <button onClick={openModal}>
             <MdLightMode size={30} className="text-yellow-500" />

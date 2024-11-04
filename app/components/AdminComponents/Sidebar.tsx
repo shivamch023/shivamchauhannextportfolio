@@ -3,11 +3,11 @@ import React from "react";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col    border border-gray-600">
+    <div className="flex flex-col     border border-gray-600">
       <div className="px-2 sm:pl-14 py-3 ">
         <h2 className="text-white text-[1.8rem] font-[700]">Shivam chauhan</h2>
       </div>
-      <div className="w-28 sm:w-80 h-[100vh] relative py-12 border border-gray-600">
+      <div className="w-28 sm:w-80 relative py-12 border border-gray-600">
         <div className="w-[50%] sm:w-[80%] absolute right-0">
           <Link
             href="/admin/addProject"

@@ -23,7 +23,7 @@ const ProjectTableItem: React.FC<ProjectTableItemProps> = ({
   console.log(date, title);
 
   return (
-    <tr className="border border-gray-600">
+    <tr className="border border-gray-600 ">
       <th
         scope="row"
         className="items-center gap-3 hidden sm:flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
