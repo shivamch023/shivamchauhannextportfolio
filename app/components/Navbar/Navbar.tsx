@@ -84,17 +84,6 @@ function NavBar() {
           </Link>
 
           <Link
-            href="/contact"
-            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
-              activeLink === "contact"
-                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
-                : ""
-            }`}
-            onClick={() => setActiveLink("contact")}
-          >
-            Contact
-          </Link>
-          <Link
             href="/skill"
             className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
               activeLink === "skill"
@@ -105,6 +94,7 @@ function NavBar() {
           >
             Skills
           </Link>
+
           <Link
             href="/service"
             className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
@@ -115,6 +105,17 @@ function NavBar() {
             onClick={() => setActiveLink("service")}
           >
             Services
+          </Link>
+          <Link
+            href="/contact"
+            className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
+              activeLink === "contact"
+                ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
+                : ""
+            }`}
+            onClick={() => setActiveLink("contact")}
+          >
+            Contact
           </Link>
         </div>
 

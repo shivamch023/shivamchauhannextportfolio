@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link"; // Next.js Link for routing
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll"; // Renamed Link for scrolling
+import { CgMail } from "react-icons/cg";
 
 const MessageMe = () => {
   const [focused, setFocused] = useState({
@@ -26,8 +27,9 @@ const MessageMe = () => {
       <div className="flex flex-col gap-3 mt-[8rem] items-center min-h-screen">
         {/* Top Section */}
         <div className="text-white text-center p-6">
-          <h1 className="text-2xl font-bold mb-4">
-            Let&apos;s <span className="text-[#008080]">talk</span>
+          <h1 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
+            Let&apos;s <CgMail className="text-red-500" />
+            <span className="text-[#008080]">talk</span>
           </h1>
           <p className="text-sm text-[#b3b9cd]">
             If you have any questions, feel free to reach out to us at any time.
@@ -35,7 +37,7 @@ const MessageMe = () => {
               to="social"
               smooth={true}
               duration={500}
-              className="text-aqua-300 cursor-pointer underline transition ml-2 hover:text-[#008080]"
+              className="text-aqua-300 cursor-pointer underline transition ml-2 hover:text-red-400 text-[#008080]"
             >
               Social Media
             </ScrollLink>

@@ -61,7 +61,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faGithub} />
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shivam-chauhan-81665b279/"
               className="text-3xl hover:text-gray-100"
             >
               <FontAwesomeIcon icon={faLinkedinIn} />

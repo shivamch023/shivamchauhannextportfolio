@@ -5,6 +5,7 @@ import ModalCard from "../ModalCard/ModalCard";
 import { BiRefresh, BiSearch } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FcBiotech } from "react-icons/fc";
 
 type Card = {
   title: string;
@@ -50,11 +51,12 @@ const TechStack: React.FC<TechStackProps> = ({
         transition={{ duration: 0.2 }}
         className="mt-6 gap-2 flex flex-col justify-center items-center mb-4"
       >
-        <h1 className="text-[1.6rem] font-bold text-[#ededed]">
-          Technical <b className="text-[#008080]">Skills</b>
+        <h1 className="text-[1.6rem] flex gap-2 items-center justify-center font-bold text-[#ededed]">
+          Technical <FcBiotech />
+          <b className="text-[#008080]">Skills</b>
         </h1>
         <p className="text-[#b3b9cd] px-2 xl:w-[70%] w-[100%] lg:w-[65%] md:w-[75%] text-center text-[14px] lg:text-[1rem] xl:text-[1rem] md:text-[1rem] mb-4">
-          As a web developer, I&aposve honed a variety of skills that allow me
+          As a web developer, I&apos;ve honed a variety of skills that allow me
           to create beautiful and functional web interfaces.
         </p>
       </motion.div>
