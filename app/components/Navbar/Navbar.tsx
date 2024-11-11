@@ -28,7 +28,7 @@ function NavBar() {
     const pathToLinkMap: { [key: string]: string } = {
       "/": "home",
       "/about": "about",
-      "/portfolio": "portfolio",
+      "/portfolios": "portfolios",
       "/contact": "contact",
       "/skill": "skill",
       "/service": "service",
@@ -72,15 +72,15 @@ function NavBar() {
             About
           </Link>
           <Link
-            href="/portfolio"
+            href="/portfolios"
             className={`text-[#FFFFFF] px-3 py-1 hover:bg-[#28353B] transition rounded-xl ${
-              activeLink === "portfolio"
+              activeLink === "portfolios"
                 ? "bg-[#28353B] px-3 py-1 text-[white] rounded-xl"
                 : ""
             }`}
-            onClick={() => setActiveLink("portfolio")}
+            onClick={() => setActiveLink("portfolios")}
           >
-            Portfolio
+            Portfolios
           </Link>
 
           <Link
@@ -328,19 +328,22 @@ function NavBar() {
           </li>
           <li
             className={`text-center flex items-center justify-center ${
-              activeLink === "portfolio" ? "text-[#40E0D0]" : "text-[#FFFFFF]"
+              activeLink === "portfolios" ? "text-[#40E0D0]" : "text-[#FFFFFF]"
             }`}
           >
-            <Link href="/portfolio" onClick={() => setActiveLink("portfolio")}>
+            <Link
+              href="/portfolios"
+              onClick={() => setActiveLink("portfolios")}
+            >
               <div className="flex flex-col items-center ml-[-60%]">
                 <div
                   className={`p-2 rounded-full transition-colors duration-300 ease-in-out ${
-                    activeLink === "portfolio" ? "bg-[#40E0D0]/50" : ""
+                    activeLink === "portfolios" ? "bg-[#40E0D0]/50" : ""
                   }`}
                 >
                   <FiBook size={15} />
                 </div>
-                <span className="mt-0 text-[10px]">Portfolio</span>
+                <span className="mt-0 text-[10px]">Portfolios</span>
               </div>
             </Link>
           </li>

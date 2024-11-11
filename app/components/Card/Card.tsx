@@ -44,7 +44,7 @@ const Card = () => {
     <div className="container flex flex-col gap-[2rem] items-center justify-center p-4">
       <ProjectCard projects={cards.slice(0, 8)} />{" "}
       {/* Display the first 8 projects */}
-      <Link href="/portfolio">
+      <Link href="/portfolios">
         <button className="px-8 py-2 bg-gray-900 border border-gray-800 text-white rounded-xl transition-all hover:bg-gray-700">
           See All
         </button>
