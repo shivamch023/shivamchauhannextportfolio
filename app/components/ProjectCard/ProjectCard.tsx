@@ -20,7 +20,7 @@ const ProjectCard = ({ projects }: { projects: any[] }) => {
         {projectList.map((project) => (
           <Link key={project.id} href={`/projects/${project._id}`}>
             <div
-              className="relative flex w-[300px] flex-col gap-[1rem] bg-[#10141d52] border  rounded-[10px] border-gray-700 px-4 py-4 overflow-hidden group"
+              className="relative flex w-[300px] h-[200px] flex-col gap-[1rem] bg-[#10141d52] border  rounded-[10px] border-gray-700 px-4 py-4 overflow-hidden group"
               style={{ textAlign: "center" }}
             >
               <Image

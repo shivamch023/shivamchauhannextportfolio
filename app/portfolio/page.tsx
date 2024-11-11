@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import Loader from "../components/Loader/Loader";
 
 const Page = () => {
   const [projects, setProjects] = useState([]); // State to hold project data
@@ -27,7 +28,7 @@ const Page = () => {
     fetchProjects(); // Call the fetch function when component mounts
   }, []);
 
-  if (loading) return <div>Loading...</div>; // Show loading text
+  if (loading) return <div><Loader/></div>; // Show loading text
   if (error) return <div>Error: {error}</div>; // Show error message if any
 
   return (

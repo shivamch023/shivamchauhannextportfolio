@@ -1,7 +1,11 @@
-import React from "react";
+import Services from "../components/Services/Services";
 
-const page = () => {
-  return <div>service</div>;
+const ServicesPage = () => {
+  return (
+    <div className=" mb-10 mt-9">
+      <Services showAll={true} />
+    </div>
+  );
 };
 
-export default page;
+export default ServicesPage;

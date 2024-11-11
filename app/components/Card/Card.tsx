@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import Link from "next/link";
 import axios from "axios";
+import Loader from "../Loader/Loader";
 
 const Card = () => {
   const [cards, setCards] = useState([]); // State to hold the cards data
@@ -33,12 +34,7 @@ const Card = () => {
   if (loading)
     return (
       <div className="flex h-[200px] w-full flex-col justify-center items-center  ">
-        <div className="loader w-24 h-24 border-8 border-t-8 border-teal-400 rounded-full animate-spin relative">
-          <div className="absolute inset-0 rounded-full border-8 border-teal-400 opacity-50 blur-lg"></div>
-        </div>
-        <p className="mt-4 text-2xl text-teal-400 font-bold text-shadow">
-          Loading...
-        </p>
+        <Loader />
       </div>
     ); // Show loading text
   if (error)

@@ -9,6 +9,7 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { CiTextAlignLeft } from "react-icons/ci";
 import Link from "next/link";
 import { GiSkills } from "react-icons/gi";
+import Loader from "@/app/components/Loader/Loader";
 
 // Define the interface for your project type
 interface Project {
@@ -55,9 +56,9 @@ const ProjectDetailPage = () => {
         <div className="loader w-24 h-24 border-8 border-t-8 border-teal-400 rounded-full animate-spin relative">
           <div className="absolute inset-0 rounded-full border-8 border-teal-400 opacity-50 blur-lg"></div>
         </div>
-        <p className="mt-4 text-2xl text-teal-400 font-bold text-shadow">
-          Loading...
-        </p>
+        <div className="mt-4 w-full">
+          <Loader />
+        </div>
       </div>
     ); // Show loading text
   if (error) return <div>Error: {error}</div>; // Show error message if any
