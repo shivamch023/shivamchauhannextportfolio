@@ -4,7 +4,6 @@ import Card from "./components/Card/Card";
 import GetInTouch from "./components/GetInTouch/GetInTouch";
 import Hero from "./components/Hero/Hero";
 import Services from "./components/Services/Services";
-import SocialMedia from "./components/SocialMedia/SocialMedia";
 import TechStack from "./components/TechStack/TechStack";
 
 const Home = () => {

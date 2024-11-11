@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React from "react";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
@@ -14,7 +13,7 @@ const GetInTouch = () => {
         </h2>
 
         <p className="text-[1.2rem] text-gray-400 font-sans">
-          Let's get to work and create something amazing.
+          Let&apos;s get to work and create something amazing.
         </p>
         <Link
           className="px-8 py-3 text-white bg-[#0e464bf1] font-semibold rounded-[10px] hover:bg-[#0e464bad] transition-all"
