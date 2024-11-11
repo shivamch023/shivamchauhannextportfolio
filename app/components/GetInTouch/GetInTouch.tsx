@@ -8,11 +8,11 @@ const GetInTouch = () => {
       <div className="flex flex-col items-center justify-center gap-5 p-8 bg-[#10141d52] border border-gray-600 w-[80%] rounded-[20px]">
         <BsFillQuestionCircleFill className="text-gray-800 border border-gray-400  bg-white text-[4rem] rounded-[200px]" />
 
-        <h2 className="text-[1.4rem] text-white font-semibold">
+        <h2 className="text-[1.2rem] text-white font-semibold text-center">
           Have a project in mind?
         </h2>
 
-        <p className="text-[1.2rem] text-gray-400 font-sans">
+        <p className="text-[1rem] text-gray-400 font-sans text-center">
           Let&apos;s get to work and create something amazing.
         </p>
         <Link

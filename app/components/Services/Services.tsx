@@ -9,7 +9,7 @@ const Services = ({ showAll = false }) => {
   return (
     <div className="container pb-6 pt-8">
       <div className="text-white  py-8 px-5 md:px-20 flex flex-col items-center justify-center w-full gap-[2rem]">
-        <h2 className="text-white flex items-center gap-2 font-[700] text-center text-[2rem]">
+        <h2 className="text-white flex items-center gap-2 font-[700] text-center text-[1.8rem]">
           Awesome <FcServices />
           <span className="text-[#008080]">Services</span>
         </h2>
