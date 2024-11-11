@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
-import Loader from "../components/Loader/Loader";
 
 const Page = () => {
   const [projects, setProjects] = useState([]);
@@ -31,7 +30,7 @@ const Page = () => {
   if (loading)
     return (
       <div>
-        <Loader />
+        <h2>Loading....</h2>
       </div>
     );
   if (error) return <div>Error: {error}</div>;

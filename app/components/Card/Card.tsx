@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import Link from "next/link";
 import axios from "axios";
-import Loader from "../Loader/Loader";
 
 const Card = () => {
   const [cards, setCards] = useState([]); // State to hold the cards data
@@ -34,7 +33,12 @@ const Card = () => {
   if (loading)
     return (
       <div className="flex h-[200px] w-full flex-col justify-center items-center  ">
-        <Loader />
+        <div className="loader w-24 h-24 border-8 border-t-8 border-teal-400 rounded-full animate-spin relative">
+          <div className="absolute inset-0 rounded-full border-8 border-teal-400 opacity-50 blur-lg"></div>
+        </div>
+        <p className="mt-4 text-2xl text-teal-400 font-bold text-shadow">
+          Loading...
+        </p>
       </div>
     ); // Show loading text
   if (error)
@@ -44,7 +48,7 @@ const Card = () => {
     <div className="container flex flex-col gap-[2rem] items-center justify-center p-4">
       <ProjectCard projects={cards.slice(0, 8)} />{" "}
       {/* Display the first 8 projects */}
-      <Link href="/portfolios">
+      <Link href="/portfolio">
         <button className="px-8 py-2 bg-gray-900 border border-gray-800 text-white rounded-xl transition-all hover:bg-gray-700">
           See All
         </button>
