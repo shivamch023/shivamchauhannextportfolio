@@ -1,10 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faGithub,
-  faLinkedinIn,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,8 +9,8 @@ import { FaThreads } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#080c167b] to-[#1a1e2eae] py-12 text-white">
-      <div className="container mx-auto px-6 lg:px-16">
+    <footer className="bg-gradient-to-r from-[#080c167b] to-[#07080cae] py-12 text-white">
+      <div className="container mx-auto px-6 lg:px-16 ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
           {/* Profile Section */}
           <div className="flex flex-col items-center md:items-start">
@@ -64,7 +59,7 @@ const Footer = () => {
             </h3>
             <div className="flex gap-[1rem] items-center  justify-center  ">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100030231424422&mibextid=ZbWKwL"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-blue-900 hover:bg-blue-700 transition"
@@ -72,7 +67,7 @@ const Footer = () => {
                 <FaFacebookF size={20} />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/Scrapstar123?t=L3ZVRfimoRYBY0SBqm_SPA&s=09"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-gray-900 hover:bg-gray-800 transition"
@@ -80,7 +75,7 @@ const Footer = () => {
                 <FaThreads size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shivam-chauhan-81665b279/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-blue-700 hover:bg-blue-800 transition"
@@ -88,7 +83,7 @@ const Footer = () => {
                 <FaLinkedin size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/shivamchauhan6769/profilecard/?igsh=ZGE2bTFkb2gzMzk4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center p-[0.2rem] w-8 h-8 rounded-lg text-white  bg-gradient-to-t to-red-600 via-pink-1400 from-yellow-900 transition"
@@ -97,7 +92,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/shivamch023"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center p-[0.2] w-8 h-8 rounded-lg text-white  bg-[#000000e6] hover:bg-[#00000079] transition"
