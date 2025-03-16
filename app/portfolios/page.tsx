@@ -29,8 +29,11 @@ const Page = () => {
 
   if (loading)
     return (
-      <div>
-        <h2>Loading....</h2>
+      <div className="flex items-center justify-center min-h-screen bg-transparent">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <div className="absolute inset-2 border-4 border-t-transparent border-blue-300 rounded-full animate-spin-slow"></div>
+        </div>
       </div>
     );
   if (error) return <div>Error: {error}</div>;
