@@ -35,19 +35,19 @@ const Footer = () => {
             <p className="flex items-center justify-center md:justify-start">
               <MdAddIcCall className="text-[#0D4347] mr-2 text-[1.2rem]" />
               <Link
-                href="tel:+916394687564"
+                href="tel:+919219723545"
                 className="hover:text-[#0D4347] transition-all"
               >
-                +91 6394687564
+                +91 9219723545
               </Link>
             </p>
             <p className="flex items-center justify-center md:justify-start ">
               <MdAttachEmail className="text-[#0D4347] mr-2 text-[1.2rem]" />
               <Link
-                href="mailto:shivamchauhan2499@gmail.com"
+                href="mailto:shivameng2025@gmail.com"
                 className="hover:text-[#0D4347] transition-all"
               >
-                shivamchauhan2499@gmail.com
+                shivameng2025@gmail.com
               </Link>
             </p>
           </div>

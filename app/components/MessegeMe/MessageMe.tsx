@@ -4,6 +4,7 @@ import Link from "next/link"; // Next.js Link for routing
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll"; // Renamed Link for scrolling
 import { CgMail } from "react-icons/cg";
+import { FaWhatsapp } from "react-icons/fa";
 
 const MessageMe = () => {
   const [focused, setFocused] = useState({
@@ -20,6 +21,14 @@ const MessageMe = () => {
     if (!value) {
       setFocused((prev) => ({ ...prev, [field]: false }));
     }
+  };
+  const phoneNumber = "9219723545"; // Yahan apna WhatsApp number daalna
+  const message = encodeURIComponent(
+    "Shivam, after reviewing your portfolio, we would like to hire you 💻 "
+  );
+
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
   return (
@@ -162,11 +171,22 @@ const MessageMe = () => {
                 </button>
                 <button
                   type="button"
-                  className="px-4 text-nowrap py-2 bg-[#1D2029] text-white text-[14px] transition rounded-md hover:bg-[#2a2d37]"
+                  className="px-4 text-nowrap py-2 bg-[#1D2029] text-white text-[14px] transition rounded-md hover:bg-[#fefeff]"
                 >
-                  Schedule a Call
+                  <Link
+                    href="tel:+919219723545"
+                    className="hover:text-[#040e0e] transition-all"
+                  >
+                    Schedule a Call
+                  </Link>
                 </button>
               </div>
+              <button
+                onClick={openWhatsApp}
+                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-600 transition"
+              >
+                <FaWhatsapp size={24} /> WhatsApp
+              </button>
             </form>
           </div>
 

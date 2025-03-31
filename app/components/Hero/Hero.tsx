@@ -20,6 +20,15 @@ const Hero = () => {
     setShowModal(false);
   };
 
+  const phoneNumber = "9219723545"; // Yahan apna WhatsApp number daalna
+  const message = encodeURIComponent(
+    "Shivam, after reviewing your portfolio, we would like to hire you 💻"
+  );
+
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
   return (
     <div className="container mx-auto pt-[5rem] pb-[3rem] md:pt-[4rem] md:pb-[4rem] px-1 md:px-6 flex flex-col md:flex-row items-center justify-between">
       <div className="bg-[#080C16] rounded-3xl w-full p-6 md:p-[4rem] flex flex-col md:flex-row items-center justify-between">
@@ -70,6 +79,12 @@ const Hero = () => {
                 className="bg-gray-800 text-[0.8rem] md:text-[0.9rem] text-white py-[0.6rem] px-20 md:px-20 rounded-xl hover:bg-gray-900 transition"
               >
                 See My Resume
+              </button>
+              <button
+                onClick={openWhatsApp}
+                className="bg-gray-800 mt-4 flex items-center justify-center gap-2 text-[0.8rem] md:text-[0.9rem] text-white py-[0.6rem] px-20 md:px-20 rounded-xl hover:bg-gray-900 transition"
+              >
+                WhatsApp Me {">"}
               </button>
             </div>
           </div>
